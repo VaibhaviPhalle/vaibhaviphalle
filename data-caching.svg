@@ -1,0 +1,39 @@
+<svg width="100%" viewBox="0 0 680 400" role="img">
+<title>Data and caching layer, illustrated</title>
+<desc>Writes flow directly into a document store. Reads pass through a Redis cache filter first, mostly flashing a hit and returning fast, with rare cache misses falling through into the same document store.</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<pattern id="hatch" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="6" stroke="#1D9E75" stroke-width="1"/></pattern>
+</defs>
+
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" x="150" y="50" text-anchor="middle">Write</text>
+<line x1="150" y1="60" x2="150" y2="178" stroke="#73726c" stroke-width="0.5" opacity="0.35"/>
+<path d="M150,178 L270,220" fill="none" stroke="#73726c" stroke-width="0.5" opacity="0.35"/>
+<circle r="5" fill="#1D9E75"><animateMotion dur="2s" begin="0s" repeatCount="indefinite" path="M150,70 L150,178 L270,220"/></circle>
+<circle r="5" fill="#1D9E75"><animateMotion dur="2s" begin="1s" repeatCount="indefinite" path="M150,70 L150,178 L270,220"/></circle>
+
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" x="480" y="50" text-anchor="middle">Read</text>
+<line x1="480" y1="60" x2="480" y2="108" stroke="#73726c" stroke-width="0.5" opacity="0.35"/>
+
+<rect x="435" y="110" width="90" height="50" rx="10" fill="url(#hatch)" opacity="0.5" stroke="#0F6E56" stroke-width="0.5"/>
+<rect x="435" y="110" width="90" height="50" rx="10" fill="#639922"><animate attributeName="opacity" values="0;0;0.5;0" keyTimes="0;0.7;0.85;1" dur="1s" repeatCount="indefinite"/></rect>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" x="480" y="180" text-anchor="middle">Redis cache</text>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="480" y="196" text-anchor="middle">Reads cut ~90%, under 10s</text>
+
+<circle r="5" fill="#1D9E75"><animateMotion dur="1s" repeatCount="indefinite" path="M480,70 L480,135"/><animate attributeName="opacity" values="1;1;0" keyTimes="0;0.8;1" dur="1s" repeatCount="indefinite"/></circle>
+<line x1="503" y1="135" x2="503" y2="70" stroke="#639922" stroke-width="0.5" opacity="0.3" marker-end="url(#arrow)"/>
+<circle r="4" fill="#639922"><animateMotion dur="1s" begin="0.2s" repeatCount="indefinite" path="M503,135 L503,70"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.8;1" dur="1s" begin="0.2s" repeatCount="indefinite"/></circle>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="560" y="55" text-anchor="middle">Hit, fast</text>
+
+<circle r="5" fill="#BA7517"><animateMotion dur="3.4s" repeatCount="indefinite" path="M480,70 L480,200 L390,220"/></circle>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="420" y="205" text-anchor="middle">Miss</text>
+
+<path d="M250,220 A80,18 0 0 0 410,220 L410,298 A80,18 0 0 1 250,298 Z" fill="#1D9E75" fill-opacity="0.15" stroke="#0F6E56" stroke-width="0.5"/>
+<ellipse cx="330" cy="220" rx="80" ry="18" fill="#1D9E75" fill-opacity="0.3" stroke="#0F6E56" stroke-width="0.5"/>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" x="330" y="335" text-anchor="middle">Document store</text>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="330" y="351" text-anchor="middle">Sub-10ms p95 writes</text>
+
+<circle cx="130" cy="375" r="6" fill="#1D9E75"/><text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="142" y="379">Write, direct</text>
+<circle cx="300" cy="375" r="6" fill="#639922"/><text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="312" y="379">Cache hit</text>
+<circle cx="440" cy="375" r="6" fill="#BA7517"/><text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="452" y="379">Cache miss</text>
+</svg>
