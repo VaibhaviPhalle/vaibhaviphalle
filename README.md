@@ -13,7 +13,7 @@ Software engineer with 3 years building distributed systems and high-throughput 
 Five systems built across two years at Bank of America and an ongoing AI infrastructure build for a family business. Each diagram is the mechanism, not a bullet list — motion included.
 
 ### LLM extraction and agentic query system
-<img src="diagrams/ganesh-sales.svg" alt="A WhatsApp order is extracted by Claude Haiku into structured data, written to both a Postgres store and a Qdrant embedding index, with an agentic router deciding per query which store to hit." width="100%"/>
+<img src="/ganesh-sales.svg" alt="A WhatsApp order is extracted by Claude Haiku into structured data, written to both a Postgres store and a Qdrant embedding index, with an agentic router deciding per query which store to hit." width="100%"/>
 
 A raw WhatsApp order gets parsed by Claude Haiku into structured data, written to both a relational store and a vector index, and an agentic router picks the right one per query.
 
@@ -82,6 +82,6 @@ Every release passes through tests before it ships, then runs under active obser
 
 ## Projects
 
-**[DistribuGate](https://github.com/VaibhaviPhalle/distributed_rate_limiter)** — A distributed rate-limiting API gateway (FastAPI, Redis/Lua atomic scripting, Postgres config store). Load-tested with Locust: 1,438 requests, 0 failures, 18ms P99 latency added.
+**[DistribuGate](https://github.com/VaibhaviPhalle/distributed_rate_limiter/blob/main/README.md)** — A distributed rate-limiting API gateway (FastAPI, Redis/Lua atomic scripting, Postgres config store). Load-tested with Locust: 1,438 requests, 0 failures, 18ms P99 latency added.
 
-**RAG Docs Assistant** — A hybrid-retrieval RAG pipeline (FastAPI, Qdrant, Ollama, OpenTelemetry, Ragas, GitHub Actions) with automated, Ragas-gated CI/CD evals. *[repo link needed]*
+**[RAG Docs Assistant](https://github.com/VaibhaviPhalle/DevDocs_Rag/blob/main/README.md)** — A hybrid-retrieval RAG pipeline (FastAPI, Qdrant, Ollama, OpenTelemetry, Ragas, GitHub Actions) with automated, Ragas-gated CI/CD evals. 
