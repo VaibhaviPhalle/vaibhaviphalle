@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" viewBox="0 0 680 480" role="img">
+<title>DAG orchestration with parallel scheduling</title>
+<desc>Two parallel tasks, B and C, each get scheduled onto the compute grid independently as soon as they are ready, running on their own timing. Task D schedules separately after both join, and only then does the job complete.</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<path id="routeB" d="M90,140 L280,80 L470,140 L610,140" fill="none"/>
+<path id="routeC" d="M90,140 L280,200 L470,140 L610,140" fill="none"/>
+</defs>
+
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" x="40" y="50">DAG orchestration</text>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="40" y="68">Parallel tasks, self-healing</text>
+
+<line x1="111" y1="133" x2="259" y2="87" stroke="#73726c" stroke-width="0.5" marker-end="url(#arrow)"/>
+<line x1="111" y1="147" x2="259" y2="193" stroke="#73726c" stroke-width="0.5" marker-end="url(#arrow)"/>
+<line x1="301" y1="87" x2="449" y2="133" stroke="#73726c" stroke-width="0.5" marker-end="url(#arrow)"/>
+<line x1="301" y1="193" x2="449" y2="147" stroke="#73726c" stroke-width="0.5" marker-end="url(#arrow)"/>
+<line x1="492" y1="140" x2="588" y2="140" stroke="#73726c" stroke-width="0.5" marker-end="url(#arrow)"/>
+
+<g fill="#EEEDFE" stroke="#534AB7"><circle cx="90" cy="140" r="22" stroke-width="0.5"/></g>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="90" y="178" text-anchor="middle">Job start</text>
+<g fill="#EEEDFE" stroke="#534AB7"><circle cx="280" cy="80" r="22" stroke-width="0.5"/></g>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="314" y="72">Task B</text>
+<g fill="#EEEDFE" stroke="#534AB7"><circle cx="280" cy="200" r="22" stroke-width="0.5"/></g>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="314" y="208">Task C</text>
+<g fill="#EEEDFE" stroke="#534AB7"><circle cx="470" cy="140" r="22" stroke-width="0.5"/></g>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="500" y="144">Task D</text>
+<g fill="#EEEDFE" stroke="#534AB7"><circle cx="610" cy="140" r="22" stroke-width="0.5"/></g>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="610" y="182" text-anchor="middle">Complete</text>
+
+<circle r="6" fill="#7F77DD"><animateMotion dur="4s" begin="0s" repeatCount="indefinite"><mpath href="#routeB" xlink:href="#routeB"/></animateMotion></circle>
+<circle r="6" fill="#D85A30"><animateMotion dur="4.6s" begin="1.3s" repeatCount="indefinite"><mpath href="#routeC" xlink:href="#routeC"/></animateMotion></circle>
+
+<path d="M280,102 L280,150 L255,150 L255,258" fill="none" stroke="#73726c" stroke-width="0.5" stroke-dasharray="4 3" opacity="0.6" marker-end="url(#arrow)"/>
+<path d="M280,222 L280,240 L425,240 L425,258" fill="none" stroke="#73726c" stroke-width="0.5" stroke-dasharray="4 3" opacity="0.6" marker-end="url(#arrow)"/>
+<path d="M470,162 L470,230 L340,230 L340,258" fill="none" stroke="#73726c" stroke-width="0.5" stroke-dasharray="4 3" opacity="0.6" marker-end="url(#arrow)"/>
+
+<text font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500" fill="#2C2C2A" x="40" y="205">Resource-aware scheduler</text>
+<text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="40" y="223">Scheduled as each task is ready</text>
+
+<path d="M425,258 C495,258 560,210 608,168" fill="none" stroke="#73726c" stroke-width="0.5" stroke-dasharray="4 3" opacity="0.6" marker-end="url(#arrow)"/>
+
+<g fill="#FAEEDA" stroke="#854F0B"><rect x="220" y="260" width="70" height="70" rx="8" stroke-width="0.5"/><text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="255" y="295" text-anchor="middle" dominant-baseline="central">62%</text></g>
+<g fill="#EAF3DE" stroke="#3B6D11"><rect x="305" y="260" width="70" height="70" rx="8" stroke-width="0.5"/><text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="340" y="295" text-anchor="middle" dominant-baseline="central">18%</text></g>
+<g fill="#FCEBEB" stroke="#A32D2D"><rect x="390" y="260" width="70" height="70" rx="8" stroke-width="0.5"/><text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="425" y="295" text-anchor="middle" dominant-baseline="central">89%</text></g>
+<g fill="#FAEEDA" stroke="#854F0B"><rect x="220" y="345" width="70" height="70" rx="8" stroke-width="0.5"/><text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="255" y="380" text-anchor="middle" dominant-baseline="central">55%</text></g>
+<g fill="#FCEBEB" stroke="#A32D2D"><rect x="305" y="345" width="70" height="70" rx="8" stroke-width="0.5"/><text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="340" y="380" text-anchor="middle" dominant-baseline="central">92%</text></g>
+<g fill="#EAF3DE" stroke="#3B6D11"><rect x="390" y="345" width="70" height="70" rx="8" stroke-width="0.5"/><text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="425" y="380" text-anchor="middle" dominant-baseline="central">24%</text></g>
+
+<circle cx="200" cy="440" r="6" fill="#3B6D11"/><text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="212" y="444">Low utilization</text>
+<circle cx="360" cy="440" r="6" fill="#854F0B"/><text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="372" y="444">Medium</text>
+<circle cx="480" cy="440" r="6" fill="#A32D2D"/><text font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5F5E5A" x="492" y="444">High, avoided</text>
+</svg>
