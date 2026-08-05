@@ -13,7 +13,7 @@ Software engineer with 3 years building distributed systems and high-throughput 
 Five systems built across two years at Bank of America and an ongoing AI infrastructure build for a family business. Each diagram is the mechanism, not a bullet list — motion included.
 
 ### LLM extraction and agentic query system
-<img src="/ganesh-sales.svg" alt="A WhatsApp order is extracted by Claude Haiku into structured data, written to both a Postgres store and a Qdrant embedding index, with an agentic router deciding per query which store to hit." width="100%"/>
+<img src="diagrams/ganesh-sales.svg" alt="A WhatsApp order is extracted by Claude Haiku into structured data, written to both a Postgres store and a Qdrant embedding index, with an agentic router deciding per query which store to hit." width="100%"/>
 
 A raw WhatsApp order gets parsed by Claude Haiku into structured data, written to both a relational store and a vector index, and an agentic router picks the right one per query.
 
@@ -49,16 +49,16 @@ Every release passes through tests before it ships, then runs under active obser
 
 **Bank of America — Software Development Engineer I**
 *Jul 2023 – Nov 2024*
-- Architected DAG-based pipeline orchestration for distributed data workflows, using the same jobs-as-code pattern as Airflow. Added automated failure recovery so jobs self-healed without manual restarts, cutting intervention by 30%.
+- Architected DAG-based pipeline orchestration for distributed data workflows, using the same as Airflow. Added automated failure recovery so jobs self-healed without manual restarts, cutting intervention by 30%.
 - Built centralized observability, including log aggregation, alerting thresholds, and real-time dashboards, then owned on-call triage against that instrumentation, cutting mean incident-detection time by 40%.
 - Engineered REST APIs in FastAPI and Redis, powering a real-time dashboard with multi-table aggregations. Reduced page load latency by 60%, from 3.5s to under 1.2s.
 - Designed RBAC and ABAC access control for a trader-facing dashboard, gating data by role and team attribute so traders, developers, and other teams each saw only their own view of the data.
-- Refactored core services into modular, well-tested OOP components, redesigning interfaces so schema changes no longer touched downstream consumers, choosing queues for ordered dispatch and dictionaries for fast lookups as part of that redesign. Lifted engineering productivity by 25% and cut CPU lock-wait time by 40% under concurrent load.
+- Refactored core services into modular, well-tested OOP components, Lifted engineering productivity by 25% and cut CPU lock-wait time by 40% under concurrent load.
 - Built a trader-facing dashboard in ReactJS that replaced a firehose of roughly 1,000 emails per minute during peak windows with dedicated, filterable views, reading data directly from the database and rendering it across multiple visualization sub-panels.
 
 **Bank of America — Senior Technology Associate**
 *Jul 2022 – Jul 2023*
-- Built a real-time transaction-processing service on a distributed, document-oriented key-value store, comparable to MongoDB. Handled millions of daily transactions at sub-10ms p95 write latency with synchronous write acknowledgment for durability.
+- Built a real-time transaction-processing service on a distributed, document-oriented key-value store. Handled millions of daily transactions at sub-10ms p95 write latency with synchronous write acknowledgment for durability.
 - Used Redis as a distributed caching layer for report-generation queries, cutting database read time by nearly 90%, from 1.5 minutes to under 10 seconds.
 - Took ownership of unit and integration test coverage across every production repository, raising it from 70% to 90–95%, making regressions a pre-deploy problem instead of a production one.
 - Implemented authentication and authorization for internal services using OAuth2, Bearer Token, and JWT, laying the identity layer that the RBAC and ABAC system was later built on.
@@ -73,15 +73,15 @@ Every release passes through tests before it ships, then runs under active obser
 
 ## Skills
 
-**Fundamentals:** Object-oriented programming, data structures, algorithms, system design
-**Languages & Systems:** Python, C++, FastAPI, REST APIs, OAuth2, JWT
-**Databases & Infra:** AWS, gRPC, PostgreSQL, Kafka, MongoDB, Redis, Kubernetes, CI/CD, Apache Airflow, Datadog
-**AI Infra & Tools:** Claude Code, Hugging Face, RAG, evaluation pipelines, MCP, agent-driven development
+- **Fundamentals:** Object-oriented programming, Data Structures, Algorithms, System Design, Distributed Systems
+- **Languages & Systems:** Python, C++, FastAPI, REST APIs, OAuth2, JWT
+- **Databases & Infra:** AWS, gRPC, PostgreSQL, Kafka, MongoDB, Redis, Kubernetes, CI/CD, Apache Airflow, Datadog
+- **AI Infra & Tools:** Claude Code, Hugging Face, RAG, evaluation pipelines, MCP, agent-driven development
 
 ---
 
 ## Projects
 
-**[DistribuGate](https://github.com/VaibhaviPhalle/distributed_rate_limiter/blob/main/README.md)** — A distributed rate-limiting API gateway (FastAPI, Redis/Lua atomic scripting, Postgres config store). Load-tested with Locust: 1,438 requests, 0 failures, 18ms P99 latency added.
+**[DistribuGate](https://github.com/VaibhaviPhalle/distributed_rate_limiter/blob/main/README.md)** — A rate limiter with two brains: a global token bucket for overall throughput, a per-tenant sliding window for fairness, both enforced atomically in Redis via Lua so no request slips through in the gap between them. 1,438 requests, 0 failures, 18ms added at P99.
 
-**[RAG Docs Assistant](https://github.com/VaibhaviPhalle/DevDocs_Rag/blob/main/README.md)** — A hybrid-retrieval RAG pipeline (FastAPI, Qdrant, Ollama, OpenTelemetry, Ragas, GitHub Actions) with automated, Ragas-gated CI/CD evals. 
+**[RAG Docs Assistant](https://github.com/VaibhaviPhalle/DevDocs_Rag/blob/main/README.md)** — Retrieval you can trust because it's tested like code — hybrid search behind a CI pipeline that won't merge a change unless the eval scores hold.
